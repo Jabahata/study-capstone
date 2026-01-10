@@ -1,0 +1,23 @@
+- name: install httpd
+  yum:
+    name: httpd
+    state: present
+
+- name: httpd service start
+  service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: copy index.html
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: httpd restart
+  service:
+    name: httpd
+    state: restarted
