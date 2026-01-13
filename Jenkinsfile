@@ -28,9 +28,7 @@ pipeline {
                     )
                 ]) {
                     sh '''
-                    ansible-playbook \
-                      -i ansible/inventory/lab.ini \
-                      ansible/playbooks/deploy.yml \
+                    ansible-playbook -i ansible/inventory/lab.ini ansible/playbooks/deploy.yml
                     '''
                 }
             }
